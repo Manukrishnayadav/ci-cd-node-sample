@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-cd-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ci-cd-sample
+  template:
+    metadata:
+      labels:
+        app: ci-cd-sample
+    spec:
+      containers:
+      - name: app
+        image: manukrishnayadav/ci-cd-node-sample:7
+        ports:
+        - containerPort: 3000
